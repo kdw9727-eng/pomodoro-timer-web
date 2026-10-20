@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pomodoro 타이머 시간 설정" />
+    <title>Setting · Pomodoro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="setting.css" />
+  </head>
+  <body>
+    <main class="setting-card">
+      <a class="back-link" href="index.html" aria-label="메인 페이지로 돌아가기">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+        pomodoro
+      </a>
+
+      <section class="setting-content" aria-labelledby="setting-title">
+        <p class="eyebrow">Timer preference</p>
+        <h3 id="setting-title">Setting</h3>
+        <p class="description">집중할 시간을 분 단위로 설정해 주세요.</p>
+
+        <form class="setting-form" id="setting-form">
+          <label for="timer-minutes">타이머 시간</label>
+          <div class="input-field">
+            <input
+              id="timer-minutes"
+              name="timer-minutes"
+              type="number"
+              value="25"
+              min="1"
+              max="60"
+              required
+              inputmode="numeric"
+              aria-describedby="minute-unit"
+            />
+            <span id="minute-unit">분</span>
+          </div>
+
+          <button id="save-button" type="submit">설정 완료</button>
+        </form>
+      </section>
+
+      <p class="hint">1분부터 60분까지 설정할 수 있어요.</p>
+    </main>
+    <script src="setting.js"></script>
+  </body>
+</html>

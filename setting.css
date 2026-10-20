@@ -1,0 +1,213 @@
+:root {
+  color-scheme: light;
+  --paper: #f5f1e8;
+  --paper-deep: #ebe4d8;
+  --ink: #20211f;
+  --muted: #78776f;
+  --accent: #d9553f;
+  --accent-dark: #b53e2d;
+  --line: rgba(32, 33, 31, 0.13);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.72), transparent 30%),
+    radial-gradient(circle at 85% 90%, rgba(206, 185, 155, 0.25), transparent 35%),
+    var(--paper-deep);
+  font-family: "Manrope", "Noto Sans KR", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.setting-card {
+  position: relative;
+  width: min(100%, 560px);
+  min-height: 620px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 36px 42px 32px;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 32px;
+  box-shadow: 0 30px 80px rgba(57, 48, 36, 0.12);
+}
+
+.setting-card::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  right: -155px;
+  bottom: -155px;
+  background: rgba(217, 85, 63, 0.07);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.back-link {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.back-link svg {
+  width: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  transition: transform 180ms ease;
+}
+
+.back-link:hover svg {
+  transform: translateX(-3px);
+}
+
+.setting-content {
+  align-self: center;
+}
+
+.eyebrow {
+  margin: 0 0 13px;
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin: 0;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  letter-spacing: -0.065em;
+  line-height: 1;
+}
+
+.description {
+  margin: 18px 0 38px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.setting-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.input-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 0 18px;
+  background: rgba(255, 255, 255, 0.48);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.input-field:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(217, 85, 63, 0.1);
+}
+
+.input-field input {
+  width: 100%;
+  height: 62px;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-family: "DM Mono", monospace;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.input-field span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.setting-form button {
+  width: 100%;
+  min-height: 54px;
+  color: #fffaf3;
+  background: var(--accent);
+  border: 0;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(181, 62, 45, 0.22);
+  transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.setting-form button:hover {
+  background: var(--accent-dark);
+  box-shadow: 0 13px 30px rgba(181, 62, 45, 0.28);
+  transform: translateY(-2px);
+}
+
+.back-link:focus-visible,
+.setting-form button:focus-visible {
+  outline: 3px solid rgba(217, 85, 63, 0.28);
+  outline-offset: 3px;
+}
+
+.hint {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 0;
+    background: var(--paper);
+  }
+
+  .setting-card {
+    width: 100%;
+    min-height: 100vh;
+    padding: 28px 22px 26px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
